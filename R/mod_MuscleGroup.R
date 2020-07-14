@@ -16,7 +16,7 @@
 mod_MuscleGroup_ui <- function(id){
   ns <- NS(id)
   tagList(
-  
+    h1("Hi I'm muscle group tab")
   )
 }
     

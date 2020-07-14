@@ -4,10 +4,17 @@ app_ui <- function() {
     # Leave this function for adding external resources
     golem_add_external_resources(),
     # List the first level UI elements here 
-    mod_Exercises_ui("Exercises_ui_1"),
-    mod_MuscleGroup_ui("MuscleGroup_ui_1"),
+    #mod_Exercises_ui("Exercises_ui_1"),
+    #mod_MuscleGroup_ui("MuscleGroup_ui_1"),
     fluidPage(
-      h1("FitnessAppDemo")
+      titlePanel("Fitbod Tracking Application"),
+      fluidRow(
+        column(3, navlistPanel(
+          tabPanel("Home", h1("home")),
+          tabPanel("Exercises", h1("first")),
+          tabPanel("Muscle Group View", h2("second"))
+          ))
+      )
     )
   )
 }

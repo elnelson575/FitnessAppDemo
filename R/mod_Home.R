@@ -1,6 +1,6 @@
 # Module UI
   
-#' @title   mod_Exercises_ui and mod_Exercises_server
+#' @title   mod_Home_ui and mod_Home_server
 #' @description  A shiny Module.
 #'
 #' @param id shiny id
@@ -8,24 +8,31 @@
 #' @param output internal
 #' @param session internal
 #'
-#' @rdname mod_Exercises
+#' @rdname mod_Home
 #'
 #' @keywords internal
 #' @export 
 #' @importFrom shiny NS tagList 
-mod_Exercises_ui <- function(id){
+mod_Home_ui <- function(id){
   ns <- NS(id)
   tagList(
-    h1("Hi I'm Exercises tab")
+  
   )
 }
     
 # Module Server
     
-#' @rdname mod_Exercises
+#' @rdname mod_Home
 #' @export
 #' @keywords internal
     
-mod_Exercises_server <- function(input, output, session){
+mod_Home_server <- function(input, output, session){
   ns <- session$ns
 }
+    
+## To be copied in the UI
+# mod_Home_ui("Home_ui_1")
+    
+## To be copied in the server
+# callModule(mod_Home_server, "Home_ui_1")
+ 
