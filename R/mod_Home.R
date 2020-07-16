@@ -25,15 +25,20 @@ mod_Home_ui <- function(id){
       fluidRow(
         column(width = 10,
           shinydashboard::box(
+            background = "blue",
             h2("You lifted XYZ xx times!"),
             title = "Congrats!"),
               br(), br(), br(), br()
           )),
       fluidRow(
-        column(width = 8,
           shinydashboard::box(
-            title = "Top Exercises",
-            DT::dataTableOutput(ns('data_table')))
+                 title = "Top Exercises",
+                 width = 6,
+                 DT::dataTableOutput(ns('data_table'))),
+          shinydashboard::box(
+            title = "Total Weight Lifted",
+            width = 6,
+            plotOutput(ns("plot"))
       )
     )
   )
@@ -51,6 +56,10 @@ mod_Home_server <- function(input, output, session){
   
   output$data_table <- DT::renderDT({
     shinipsum::random_DT(5, 3, "numeric")
+  })
+  
+  output$plot <- renderPlot({
+    shinipsum::random_ggplot(type = "line")
   })
 }
  

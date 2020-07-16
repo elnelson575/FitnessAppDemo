@@ -22,8 +22,7 @@ app_ui <- function() {
           # Setting id makes input$tabs give the tabName of currently-selected tab
           id = "tabs",
           shinydashboard::menuItem("Dashboard", tabName = "dashboard", icon = icon("dashboard")),
-          shinydashboard::menuItem("Muscle Group View", icon = icon("th"), tabName = "mg", badgeLabel = "Coming soon",
-                   badgeColor = "green"),
+          shinydashboard::menuItem("Muscle Group View", icon = icon("th"), tabName = "mg"),
           shinydashboard::menuItem("Exercise View", icon = icon("bar-chart-o"), tabName = "ev"
           ))
       ),
