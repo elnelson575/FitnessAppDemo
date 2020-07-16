@@ -10,10 +10,10 @@ app_ui <- function() {
       titlePanel("Fitbod Tracking Application"),
       fluidRow(
         column(3, navlistPanel(
-          tabPanel("Home", h1("home")),
-          tabPanel("Exercises", h1("first")),
-          tabPanel("Muscle Group View", h2("second"))
-          ))
+          tabPanel("Home", mod_Home_ui("Home_ui_1")),
+          tabPanel("Exercises", mod_Exercises_ui("Exercises_ui_1")),
+          tabPanel("Muscle Group View", mod_MuscleGroup_ui("MuscleGroup_ui_1"))
+        ))
       )
     )
   )

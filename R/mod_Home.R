@@ -16,7 +16,15 @@
 mod_Home_ui <- function(id){
   ns <- NS(id)
   tagList(
-  
+    fluidRow(
+      column(width = 10,
+        shinydashboard::box(
+          width = 4,
+          background = "light-blue",
+          p("This is content. The background color is set to light-blue")
+        )
+    )
+    )
   )
 }
     
@@ -29,10 +37,4 @@ mod_Home_ui <- function(id){
 mod_Home_server <- function(input, output, session){
   ns <- session$ns
 }
-    
-## To be copied in the UI
-# mod_Home_ui("Home_ui_1")
-    
-## To be copied in the server
-# callModule(mod_Home_server, "Home_ui_1")
  
