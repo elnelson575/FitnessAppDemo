@@ -6,15 +6,41 @@ app_ui <- function() {
     # List the first level UI elements here 
     #mod_Exercises_ui("Exercises_ui_1"),
     #mod_MuscleGroup_ui("MuscleGroup_ui_1"),
-    fluidPage(
-      titlePanel("Fitbod Tracking Application"),
-      fluidRow(
-        column(3, navlistPanel(
-          tabPanel("Home", mod_Home_ui("Home_ui_1")),
-          tabPanel("Exercises", mod_Exercises_ui("Exercises_ui_1")),
-          tabPanel("Muscle Group View", mod_MuscleGroup_ui("MuscleGroup_ui_1"))
-        ))
-      )
+
+    shinydashboardPlus::dashboardPagePlus(
+      
+      header = shinydashboardPlus::dashboardHeaderPlus(
+        title = "Fitbod Tracking Dashboard",
+        enable_rightsidebar = FALSE
+      ),
+      
+      
+      sidebar = shinydashboard::dashboardSidebar(
+        
+        
+        shinydashboard::sidebarMenu(
+          # Setting id makes input$tabs give the tabName of currently-selected tab
+          id = "tabs",
+          shinydashboard::menuItem("Dashboard", tabName = "dashboard", icon = icon("dashboard")),
+          shinydashboard::menuItem("Muscle Group View", icon = icon("th"), tabName = "mg", badgeLabel = "Coming soon",
+                   badgeColor = "green"),
+          shinydashboard::menuItem("Exercise View", icon = icon("bar-chart-o"), tabName = "ev"
+          ))
+      ),
+      
+      
+      
+      body = shinydashboard::dashboardBody(
+        shinydashboard::tabItems(
+          shinydashboard::tabItem("dashboard", mod_Home_ui("Home_ui_1")),
+          shinydashboard::tabItem("mg", mod_MuscleGroup_ui("MuscleGroup_ui_1")),
+          shinydashboard::tabItem("ev", mod_Exercises_ui("Exercises_ui_1")
+          )
+          
+        ) 
+      ),
+      rightsidebar = NULL,
+      title = "FitBod App Monitoring Dashboard"
     )
   )
 }

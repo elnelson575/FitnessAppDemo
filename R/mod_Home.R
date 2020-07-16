@@ -16,14 +16,25 @@
 mod_Home_ui <- function(id){
   ns <- NS(id)
   tagList(
-    fluidRow(
-      column(width = 10,
-        shinydashboard::box(
-          width = 4,
-          background = "light-blue",
-          p("This is content. The background color is set to light-blue")
+    fluidPage(
+      fluidRow(
+        column(width = 5,
+          h2("Welcome!")),
+          br(),br(),br()
+        ),
+      fluidRow(
+        column(width = 10,
+          shinydashboard::box(
+            h3("Congrats!")),
+              h2("You lifted XYZ xx times!")),
+              br(), br(), br(), br()
+          ),
+      fluidRow(
+        column(width = 6,
+          shinydashboard::box(
+            title = "Top Exercises")
         )
-    )
+      )
     )
   )
 }
@@ -36,5 +47,9 @@ mod_Home_ui <- function(id){
     
 mod_Home_server <- function(input, output, session){
   ns <- session$ns
+  
+  #output$data_table <- DT::renderDT({
+  #  shinipsum::random_DT(10, 2, "numeric")
+ # })
 }
  
