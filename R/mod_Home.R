@@ -25,17 +25,18 @@ mod_Home_ui <- function(id){
       fluidRow(
         column(width = 10,
           shinydashboard::box(
-            h3("Congrats!")),
-              h2("You lifted XYZ xx times!")),
+            h2("You lifted XYZ xx times!"),
+            title = "Congrats!"),
               br(), br(), br(), br()
-          ),
+          )),
       fluidRow(
-        column(width = 6,
+        column(width = 8,
           shinydashboard::box(
-            title = "Top Exercises")
-        )
+            title = "Top Exercises",
+            DT::dataTableOutput(ns('data_table')))
       )
     )
+  )
   )
 }
     
@@ -48,8 +49,8 @@ mod_Home_ui <- function(id){
 mod_Home_server <- function(input, output, session){
   ns <- session$ns
   
-  #output$data_table <- DT::renderDT({
-  #  shinipsum::random_DT(10, 2, "numeric")
- # })
+  output$data_table <- DT::renderDT({
+    shinipsum::random_DT(5, 3, "numeric")
+  })
 }
  
